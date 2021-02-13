@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/spaceship_executable.dir/main.cpp.o CMakeFiles/spaceship_executable.dir/spaceship.cpp.o  -o spaceship_executable 

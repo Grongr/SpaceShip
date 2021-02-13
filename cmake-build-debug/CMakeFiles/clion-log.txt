@@ -1,0 +1,21 @@
+/home/grongr/clion/clion-2020.3.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship
+CMake Error: Could not find cmake module file: CMakeDetermineLANGUAGECompiler.cmake
+CMake Error: Error required internal CMake variable not set, cmake may not be built correctly.
+Missing variable is:
+CMAKE_LANGUAGE_COMPILER_ENV_VAR
+CMake Error: Error required internal CMake variable not set, cmake may not be built correctly.
+Missing variable is:
+CMAKE_LANGUAGE_COMPILER
+CMake Error: Could not find cmake module file: /home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles/3.17.5/CMakeLANGUAGECompiler.cmake
+CMake Error at CMakeLists.txt:2 (project):
+  No CMAKE_LANGUAGE_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting the CMake cache entry
+  CMAKE_LANGUAGE_COMPILER to the full path to the compiler, or to the
+  compiler name if it is in the PATH.
+
+
+CMake Error: Could not find cmake module file: CMakeLANGUAGEInformation.cmake
+CMake Error: CMAKE_LANGUAGE_COMPILER not set, after EnableLanguage
+-- Configuring incomplete, errors occurred!
+See also "/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles/CMakeOutput.log".

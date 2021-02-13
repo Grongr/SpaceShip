@@ -1,0 +1,3 @@
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles/spaceship.dir
