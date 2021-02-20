@@ -1,0 +1,134 @@
+\hypertarget{classSpaceShip}{}\doxysection{Space\+Ship Class Reference}
+\label{classSpaceShip}\index{SpaceShip@{SpaceShip}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSpaceShip_af65594d51bee9dbe834a2055b59ca3d1}{Space\+Ship}} (\mbox{\hyperlink{structEnergyFuelSystemBuilder}{Energy\+Fuel\+System\+Builder}} builder, double mass, double fuel\+\_\+cost, \mbox{\hyperlink{classVector}{Vector}} R, \mbox{\hyperlink{classVector}{Vector}} V, \mbox{\hyperlink{classVector}{Vector}} a\+\_\+vec)
+\item 
+\mbox{\hyperlink{classSpaceShip_a4c5fb82af208d43a8f3d952161136845}{Space\+Ship}} (\mbox{\hyperlink{structEnergyFuelSystemBuilder}{Energy\+Fuel\+System\+Builder}} builder, double mass, double fuel\+\_\+cost)
+\item 
+void \mbox{\hyperlink{classSpaceShip_a0ea6a60923e2ac9c8568806cd60ee5a6}{set\+\_\+accel\+\_\+direction}} (\mbox{\hyperlink{classVector}{Vector}} new\+\_\+dir)
+\item 
+void \mbox{\hyperlink{classSpaceShip_a4568f5b8574de43e225160ae007a3ace}{move\+\_\+ship}} (double time)
+\item 
+bool \mbox{\hyperlink{classSpaceShip_a1a0350caf5d3dd1be1af4156af4434fb}{toggle\+\_\+engine}} ()
+\item 
+double \mbox{\hyperlink{classSpaceShip_a66bd8f3c809eb6bc0ccb15b8e4a58a3f}{get\+\_\+fuel}} () const
+\item 
+bool \mbox{\hyperlink{classSpaceShip_a9fb5a7f5469464cf68bc861fdfa39cf6}{is\+\_\+engine\+\_\+active\+\_\+or\+\_\+not}} () const
+\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classSpaceShip_aedfaf2e91da29b5220bd393c3c291764}{get\+\_\+position}} () const
+\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classSpaceShip_ae3c4868d44135adcea5fbd146e2a197c}{get\+\_\+velocity}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSpaceShip_af65594d51bee9dbe834a2055b59ca3d1}\label{classSpaceShip_af65594d51bee9dbe834a2055b59ca3d1}} 
+\index{SpaceShip@{SpaceShip}!SpaceShip@{SpaceShip}}
+\index{SpaceShip@{SpaceShip}!SpaceShip@{SpaceShip}}
+\doxysubsubsection{\texorpdfstring{SpaceShip()}{SpaceShip()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Space\+Ship\+::\+Space\+Ship (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEnergyFuelSystemBuilder}{Energy\+Fuel\+System\+Builder}}}]{builder,  }\item[{double}]{mass,  }\item[{double}]{fuel\+\_\+cost,  }\item[{\mbox{\hyperlink{classVector}{Vector}}}]{R,  }\item[{\mbox{\hyperlink{classVector}{Vector}}}]{V,  }\item[{\mbox{\hyperlink{classVector}{Vector}}}]{a\+\_\+vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor with some initialization 
+\begin{DoxyParams}{Parameters}
+{\em builder} & -\/ special builder for fuel system \\
+\hline
+{\em mass} & -\/ mass of spaceship \\
+\hline
+{\em fuel\+\_\+cost} & -\/ how many fuel it takes to move \\
+\hline
+{\em R} & -\/ start location \\
+\hline
+{\em V} & -\/ start velocity \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSpaceShip_a4c5fb82af208d43a8f3d952161136845}\label{classSpaceShip_a4c5fb82af208d43a8f3d952161136845}} 
+\index{SpaceShip@{SpaceShip}!SpaceShip@{SpaceShip}}
+\index{SpaceShip@{SpaceShip}!SpaceShip@{SpaceShip}}
+\doxysubsubsection{\texorpdfstring{SpaceShip()}{SpaceShip()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Space\+Ship\+::\+Space\+Ship (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEnergyFuelSystemBuilder}{Energy\+Fuel\+System\+Builder}}}]{builder,  }\item[{double}]{mass,  }\item[{double}]{fuel\+\_\+cost }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor without initialization of Radius 
+\begin{DoxyParams}{Parameters}
+{\em mass} & \\
+\hline
+{\em fuel} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpaceShip_a66bd8f3c809eb6bc0ccb15b8e4a58a3f}\label{classSpaceShip_a66bd8f3c809eb6bc0ccb15b8e4a58a3f}} 
+\index{SpaceShip@{SpaceShip}!get\_fuel@{get\_fuel}}
+\index{get\_fuel@{get\_fuel}!SpaceShip@{SpaceShip}}
+\doxysubsubsection{\texorpdfstring{get\_fuel()}{get\_fuel()}}
+{\footnotesize\ttfamily double Space\+Ship\+::get\+\_\+fuel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to see how many fuel we have \begin{DoxyReturn}{Returns}
+value of a $<$fuel$>$ variable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpaceShip_aedfaf2e91da29b5220bd393c3c291764}\label{classSpaceShip_aedfaf2e91da29b5220bd393c3c291764}} 
+\index{SpaceShip@{SpaceShip}!get\_position@{get\_position}}
+\index{get\_position@{get\_position}!SpaceShip@{SpaceShip}}
+\doxysubsubsection{\texorpdfstring{get\_position()}{get\_position()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} Space\+Ship\+::get\+\_\+position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+If you wanna know where the ship is. \begin{DoxyReturn}{Returns}
+a position of the ship 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpaceShip_ae3c4868d44135adcea5fbd146e2a197c}\label{classSpaceShip_ae3c4868d44135adcea5fbd146e2a197c}} 
+\index{SpaceShip@{SpaceShip}!get\_velocity@{get\_velocity}}
+\index{get\_velocity@{get\_velocity}!SpaceShip@{SpaceShip}}
+\doxysubsubsection{\texorpdfstring{get\_velocity()}{get\_velocity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} Space\+Ship\+::get\+\_\+velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+If you wanna know the velocity of the ship \begin{DoxyReturn}{Returns}
+a velocity of the ship 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpaceShip_a9fb5a7f5469464cf68bc861fdfa39cf6}\label{classSpaceShip_a9fb5a7f5469464cf68bc861fdfa39cf6}} 
+\index{SpaceShip@{SpaceShip}!is\_engine\_active\_or\_not@{is\_engine\_active\_or\_not}}
+\index{is\_engine\_active\_or\_not@{is\_engine\_active\_or\_not}!SpaceShip@{SpaceShip}}
+\doxysubsubsection{\texorpdfstring{is\_engine\_active\_or\_not()}{is\_engine\_active\_or\_not()}}
+{\footnotesize\ttfamily bool Space\+Ship\+::is\+\_\+engine\+\_\+active\+\_\+or\+\_\+not (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if engine is active or not \begin{DoxyReturn}{Returns}
+value of $<$is\+\_\+engine\+\_\+active$>$ variable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpaceShip_a4568f5b8574de43e225160ae007a3ace}\label{classSpaceShip_a4568f5b8574de43e225160ae007a3ace}} 
+\index{SpaceShip@{SpaceShip}!move\_ship@{move\_ship}}
+\index{move\_ship@{move\_ship}!SpaceShip@{SpaceShip}}
+\doxysubsubsection{\texorpdfstring{move\_ship()}{move\_ship()}}
+{\footnotesize\ttfamily void Space\+Ship\+::move\+\_\+ship (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+
+Changing radius vector of space ship while it is moving for $<$time$>$ 
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSpaceShip_a0ea6a60923e2ac9c8568806cd60ee5a6}\label{classSpaceShip_a0ea6a60923e2ac9c8568806cd60ee5a6}} 
+\index{SpaceShip@{SpaceShip}!set\_accel\_direction@{set\_accel\_direction}}
+\index{set\_accel\_direction@{set\_accel\_direction}!SpaceShip@{SpaceShip}}
+\doxysubsubsection{\texorpdfstring{set\_accel\_direction()}{set\_accel\_direction()}}
+{\footnotesize\ttfamily void Space\+Ship\+::set\+\_\+accel\+\_\+direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVector}{Vector}}}]{new\+\_\+dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Changed direction of acceleration to new\+\_\+dir 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+dir} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSpaceShip_a1a0350caf5d3dd1be1af4156af4434fb}\label{classSpaceShip_a1a0350caf5d3dd1be1af4156af4434fb}} 
+\index{SpaceShip@{SpaceShip}!toggle\_engine@{toggle\_engine}}
+\index{toggle\_engine@{toggle\_engine}!SpaceShip@{SpaceShip}}
+\doxysubsubsection{\texorpdfstring{toggle\_engine()}{toggle\_engine()}}
+{\footnotesize\ttfamily bool Space\+Ship\+::toggle\+\_\+engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Toggles engine active or not. \begin{DoxyReturn}{Returns}
+value of $<$is\+\_\+engine\+\_\+active$>$ after toggling 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+spaceship.\+h\item 
+spaceship.\+cpp\end{DoxyCompactItemize}
