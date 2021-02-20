@@ -2,6 +2,7 @@
 // Created by grongr on 2/11/21.
 //
 
+#include <iostream>
 #include "spaceship.h"
 
 //-----------------------------------------------------------------------------------------------------------//
@@ -17,6 +18,10 @@ Vector Vector::operator*(double value) {
     this->z *= value;
 }
 
+void Vector::print_vector() const {
+    std::cout << this->x << " " << this->y << " " << this->z << std::endl;
+}
+
 //-----------------------------------------------------------------------------------------------------------//
 void SpaceShip::move_ship(double time) {
     double needed_fuel = time * fuel_cost;
@@ -26,6 +31,7 @@ void SpaceShip::move_ship(double time) {
     time = used_fuel / this->fuel_cost;
 
     R = R + V * time + AVec * (time * time / 2.0);
+    V = V + AVec * time;
 }
 
 bool SpaceShip::toggle_engine() {

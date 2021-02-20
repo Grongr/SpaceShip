@@ -5,6 +5,8 @@
 #ifndef SPACESHIP_SPACESHIP_H
 #define SPACESHIP_SPACESHIP_H
 
+#define DEBUG
+
 #include <cmath>
 
 //-----------------------------------------------------------------------------------------------------------//
@@ -48,6 +50,15 @@ public:
      */
     Vector operator* (double value);
 
+#ifdef DEBUG
+
+    /*!
+     * Simply out x, y, z
+     */
+    void print_vector() const;
+
+#endif // DEBUG
+
 protected:
     /*!
      * Coordinates of a point in space
@@ -86,6 +97,10 @@ public:
      */
     double how_many_energy() const { return contain_energy; }
 
+    /*!
+     * Sets maximum and containing energy
+     * @param mv maximum energy
+     */
     void set_energy(double mv) {
         this->contain_energy = this->max_energy = mv;
     }
@@ -271,12 +286,15 @@ class SpaceShip {
 public:
     /*!
      * Constructor with some initialization
-     * @param mass
-     * @param fuel
-     * @param R
+     * @param builder   - special builder for fuel system
+     * @param mass      - mass of spaceship
+     * @param fuel_cost - how many fuel it takes to move
+     * @param R         - start location
+     * @param V         - start velocity
      */
-    SpaceShip(EnergyFuelSystemBuilder builder, double mass, double fuel_cost, Vector R)
-    : mass{mass}, R{R}, efs(builder), fuel_cost{fuel_cost} { }
+    SpaceShip(EnergyFuelSystemBuilder builder, double mass, double fuel_cost,
+              Vector R, Vector V, Vector a_vec)
+            : mass{mass}, R{R}, efs(builder), fuel_cost{fuel_cost}, V{V}, AVec{a_vec} {}
 
     /*!
      * Constructor without initialization of Radius
