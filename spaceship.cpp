@@ -6,16 +6,19 @@
 #include "spaceship.h"
 
 //-----------------------------------------------------------------------------------------------------------//
-Vector Vector::operator+(Vector v) {
-    this->x += v.x;
-    this->y += v.y;
-    this->z += v.z;
+Vector Vector::operator+(Vector const& r) {
+    return Vector(this->x + r.x, this->y + r.y, this->z + r.z);
 }
 
 Vector Vector::operator*(double value) {
-    this->x *= value;
-    this->y *= value;
-    this->z *= value;
+    return Vector(this->x * value, this->y * value, this->z * value);
+}
+
+Vector Vector::operator=(Vector p) {
+    this->x = p.x;
+    this->y = p.y;
+    this->z = p.z;
+    return *this;
 }
 
 void Vector::print_vector() const {
@@ -24,13 +27,15 @@ void Vector::print_vector() const {
 
 //-----------------------------------------------------------------------------------------------------------//
 void SpaceShip::move_ship(double time) {
+    R = R + (V * time);
+
     double needed_fuel = time * fuel_cost;
 
     double used_fuel = this->efs.use_some_fuel(needed_fuel);
 
     time = used_fuel / this->fuel_cost;
 
-    R = R + V * time + AVec * (time * time / 2.0);
+    R = R + AVec * (time * time / 2.0);
     V = V + AVec * time;
 }
 

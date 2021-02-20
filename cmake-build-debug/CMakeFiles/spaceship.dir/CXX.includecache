@@ -7,6 +7,10 @@
 #IncludeRegexTransform: 
 
 /home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/main.cpp
+spaceship.h
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/spaceship.h
+
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/spaceship.cpp
 iostream
 -
 spaceship.h

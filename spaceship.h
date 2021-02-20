@@ -41,7 +41,7 @@ public:
      * @param p
      * @return
      */
-    Vector operator+ (Vector p);
+    Vector operator+ (Vector const& r);
 
     /*!
      * You know, that is vector that is multiplied on a real number...
@@ -49,6 +49,13 @@ public:
      * @return
      */
     Vector operator* (double value);
+
+    /*!
+     * How to integrate one vector into another
+     * @param p
+     * @return result vector
+     */
+    Vector operator= (Vector p);
 
 #ifdef DEBUG
 
