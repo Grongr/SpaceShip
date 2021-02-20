@@ -19,6 +19,6 @@ void unit_test() {
     {
         EnergyFuelSystemBuilder builder(10, 0.2, 1, 1, 100000);
         TEST(2, Vector(0, 20, 0), Vector(10, 0, 0), Vector(0, -10, 0),
-             builder, 10000, 1.0, 4.0, Vector(40, 40, 0))
+             builder, 10000, 1.0, 4.0, Vector(40, -40, 0))
     }
 }

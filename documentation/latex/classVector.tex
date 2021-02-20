@@ -17,6 +17,8 @@ double \mbox{\hyperlink{classVector_ac724fdb52264b4933447b88132eb08ab}{length}} 
 \item 
 \mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_a9d8df2ad973012a10e1a750591458dc8}{operator$\ast$}} (double value) const
 \item 
+bool \mbox{\hyperlink{classVector_a414bf09b0237daf449d9c1a96d4fd728}{operator!=}} (\mbox{\hyperlink{classVector}{Vector}} const \&r) const
+\item 
 \mbox{\hyperlink{classVector}{Vector}} \& \mbox{\hyperlink{classVector_a7e158e6602da62eaffbb03bdf1e1b6f2}{operator=}} (\mbox{\hyperlink{classVector}{Vector}} p)
 \item 
 void \mbox{\hyperlink{classVector_abe74ca5797ca427583dd31fcd98ee7d0}{print\+\_\+vector}} () const
@@ -70,6 +72,20 @@ Constructor which could initialize all coordinates
 
 \begin{DoxyReturn}{Returns}
 the length of a vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVector_a414bf09b0237daf449d9c1a96d4fd728}\label{classVector_a414bf09b0237daf449d9c1a96d4fd728}} 
+\index{Vector@{Vector}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Vector\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVector}{Vector}} const \&}]{r }\end{DoxyParamCaption}) const}
+
+Operator != 
+\begin{DoxyParams}{Parameters}
+{\em r} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this != r 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classVector_a9d8df2ad973012a10e1a750591458dc8}\label{classVector_a9d8df2ad973012a10e1a750591458dc8}} 
 \index{Vector@{Vector}!operator$\ast$@{operator$\ast$}}

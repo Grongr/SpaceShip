@@ -6,13 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/spaceship.cpp
-iostream
--
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/main.cpp
 spaceship.h
 /home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/spaceship.h
+unitests.h
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/unitests.h
 
 /home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/spaceship.h
 cmath
+-
+
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/unitests.cpp
+unitests.h
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/unitests.h
+
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/unitests.h
+spaceship.h
+/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/spaceship.h
+iostream
 -
 

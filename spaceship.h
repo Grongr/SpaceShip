@@ -50,6 +50,11 @@ public:
      */
     Vector operator* (double value) const;
 
+    /*!
+     * Operator !=
+     * @param r
+     * @return true if this != r
+     */
     bool operator!= (Vector const &r) const;
 
     /*!
