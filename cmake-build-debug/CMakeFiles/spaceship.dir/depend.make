@@ -7,3 +7,7 @@ CMakeFiles/spaceship.dir/main.cpp.o: ../spaceship.h
 CMakeFiles/spaceship.dir/spaceship.cpp.o: ../spaceship.cpp
 CMakeFiles/spaceship.dir/spaceship.cpp.o: ../spaceship.h
 
+CMakeFiles/spaceship.dir/unitests.cpp.o: ../spaceship.h
+CMakeFiles/spaceship.dir/unitests.cpp.o: ../unitests.cpp
+CMakeFiles/spaceship.dir/unitests.cpp.o: ../unitests.h
+

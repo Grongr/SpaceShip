@@ -197,6 +197,33 @@ spaceship.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spaceship.dir/build.make CMakeFiles/spaceship.dir/spaceship.cpp.s
 .PHONY : spaceship.cpp.s
 
+unitests.o: unitests.cpp.o
+
+.PHONY : unitests.o
+
+# target to build an object file
+unitests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spaceship.dir/build.make CMakeFiles/spaceship.dir/unitests.cpp.o
+.PHONY : unitests.cpp.o
+
+unitests.i: unitests.cpp.i
+
+.PHONY : unitests.i
+
+# target to preprocess a source file
+unitests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spaceship.dir/build.make CMakeFiles/spaceship.dir/unitests.cpp.i
+.PHONY : unitests.cpp.i
+
+unitests.s: unitests.cpp.s
+
+.PHONY : unitests.s
+
+# target to generate assembly for a file
+unitests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spaceship.dir/build.make CMakeFiles/spaceship.dir/unitests.cpp.s
+.PHONY : unitests.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +239,9 @@ help:
 	@echo "... spaceship.o"
 	@echo "... spaceship.i"
 	@echo "... spaceship.s"
+	@echo "... unitests.o"
+	@echo "... unitests.i"
+	@echo "... unitests.s"
 .PHONY : help
 
 

@@ -91,6 +91,12 @@
 		<Unit filename="/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/spaceship.h">
 			<Option target="spaceship"/>
 		</Unit>
+		<Unit filename="/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/unitests.cpp">
+			<Option target="spaceship"/>
+		</Unit>
+		<Unit filename="/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/unitests.h">
+			<Option target="spaceship"/>
+		</Unit>
 		<Unit filename="/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

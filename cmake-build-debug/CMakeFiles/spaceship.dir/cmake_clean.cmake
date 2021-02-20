@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/spaceship.dir/main.cpp.o"
   "CMakeFiles/spaceship.dir/spaceship.cpp.o"
+  "CMakeFiles/spaceship.dir/unitests.cpp.o"
   "spaceship"
   "spaceship.pdb"
 )

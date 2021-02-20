@@ -94,12 +94,12 @@ clean: CMakeFiles/spaceship.dir/clean
 CMakeFiles/spaceship.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spaceship.dir/build.make CMakeFiles/spaceship.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spaceship.dir/build.make CMakeFiles/spaceship.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target spaceship"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target spaceship"
 .PHONY : CMakeFiles/spaceship.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/spaceship.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/spaceship.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/spaceship.dir/rule

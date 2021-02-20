@@ -50,6 +50,8 @@ public:
      */
     Vector operator* (double value) const;
 
+    bool operator!= (Vector const &r) const;
+
     /*!
      * How to integrate one vector into another
      * @param p

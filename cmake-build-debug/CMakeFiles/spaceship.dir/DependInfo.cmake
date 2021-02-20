@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/main.cpp" "/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles/spaceship.dir/main.cpp.o"
   "/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/spaceship.cpp" "/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles/spaceship.dir/spaceship.cpp.o"
+  "/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/unitests.cpp" "/home/grongr/learning/mipt/informatics/2sem/11.02.2021/spaceship/cmake-build-debug/CMakeFiles/spaceship.dir/unitests.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

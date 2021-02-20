@@ -21,23 +21,37 @@ Vector& Vector::operator=(Vector p) {
     return *this;
 }
 
+bool Vector::operator!=(Vector const &r) const {
+    if (this->x == r.x && this->y == r.y && this->z == r.z)
+        return false;
+    else
+        return true;
+}
+
 void Vector::print_vector() const {
     std::cout << this->x << " " << this->y << " " << this->z << std::endl;
 }
 
 //-----------------------------------------------------------------------------------------------------------//
 void SpaceShip::move_ship(double time) {
-    R = R + (V * time);
-
     if (this->is_engine_active) {
         double needed_fuel = time * fuel_cost;
 
         double used_fuel = this->efs.use_some_fuel(needed_fuel);
 
-        time = used_fuel / this->fuel_cost;
+        if (used_fuel < needed_fuel)
+            this->toggle_engine();
 
-        R = R + AVec * (time * time / 2.0);
-        V = V + AVec * time;
+        double time_of_moving_with_ac = used_fuel / this->fuel_cost;
+
+        R = R + V * time_of_moving_with_ac +
+            AVec * (time_of_moving_with_ac * time_of_moving_with_ac / 2.0);
+
+        V = V + AVec * time_of_moving_with_ac;
+
+        R = R + V * (time - time_of_moving_with_ac);
+    } else {
+        R = R + (V * time);
     }
 }
 
@@ -103,7 +117,7 @@ double FuelTank::energy_cost(double f) const {
 double FuelTank::max_amount_of_fuel_to_give(double energy) const {
     int count = (int) (energy / this->u);               // How many times we can give Q amount of fuel
 
-    return fmax(count * Q, this->contain_v);
+    return fmin(count * Q, this->contain_v);         // max or min ???
 }
 //-----------------------------------------------------------------------------------------------------------//
 bool EnergyFuelSystem::have_enough_resources(double fuel) {
@@ -127,7 +141,7 @@ double EnergyFuelSystem::use_some_fuel(double fuel) {
 
     int i = this->batteries_count - 1;
 
-    while (used_energy > 0) {
+    while (used_energy > 0 && i >= 0) {
         used_energy -= bat[i].use_battery(used_energy);
         --i;
     }
