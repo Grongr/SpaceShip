@@ -41,21 +41,21 @@ public:
      * @param p
      * @return
      */
-    Vector operator+ (Vector const& r);
+    Vector operator+ (Vector const& r) const;
 
     /*!
      * You know, that is vector that is multiplied on a real number...
      * @param value
      * @return
      */
-    Vector operator* (double value);
+    Vector operator* (double value) const;
 
     /*!
      * How to integrate one vector into another
      * @param p
      * @return result vector
      */
-    Vector operator= (Vector p);
+    Vector& operator= (Vector p);
 
 #ifdef DEBUG
 
@@ -92,7 +92,7 @@ public:
     explicit Battery(double max_energy) : contain_energy{max_energy}, max_energy{max_energy} { }
 
     /*!
-     * Chanfes cantaining amount of energy
+     * Changes containing amount of energy
      * I NEED POWER, MORE POWER
      * @param energy
      * @return the amount of energy it used
@@ -364,7 +364,7 @@ private:
      * @param fuel              how much fuel it has
      * @param fuel_cost         how much fuel it eats in a time
      * @param bat               batteries of this ship
-     * @param is_engine_active  is engine active??? hmmmm
+     * @param is_engine_active  is engine active??? hmmmm, Иногда я думаю, что моя гениальность создает гравитацию
      */
     Vector R{}, V{}, AVec{1, 0, 0};
     double mass, fuel_cost;

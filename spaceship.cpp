@@ -6,15 +6,15 @@
 #include "spaceship.h"
 
 //-----------------------------------------------------------------------------------------------------------//
-Vector Vector::operator+(Vector const& r) {
+Vector Vector::operator+(Vector const& r) const {
     return Vector(this->x + r.x, this->y + r.y, this->z + r.z);
 }
 
-Vector Vector::operator*(double value) {
+Vector Vector::operator*(double value) const {
     return Vector(this->x * value, this->y * value, this->z * value);
 }
 
-Vector Vector::operator=(Vector p) {
+Vector& Vector::operator=(Vector p) {
     this->x = p.x;
     this->y = p.y;
     this->z = p.z;
@@ -29,14 +29,16 @@ void Vector::print_vector() const {
 void SpaceShip::move_ship(double time) {
     R = R + (V * time);
 
-    double needed_fuel = time * fuel_cost;
+    if (this->is_engine_active) {
+        double needed_fuel = time * fuel_cost;
 
-    double used_fuel = this->efs.use_some_fuel(needed_fuel);
+        double used_fuel = this->efs.use_some_fuel(needed_fuel);
 
-    time = used_fuel / this->fuel_cost;
+        time = used_fuel / this->fuel_cost;
 
-    R = R + AVec * (time * time / 2.0);
-    V = V + AVec * time;
+        R = R + AVec * (time * time / 2.0);
+        V = V + AVec * time;
+    }
 }
 
 bool SpaceShip::toggle_engine() {
