@@ -13,17 +13,9 @@
  * @param test_num  number of test
  * @param R0        resulting radius vector
  * @param R         correct resulting vector
+ * @return          true if test is passed and false if not
  */
-void check_unit_test(int test_num, Vector R0, Vector R);
-
-#define TEST(TestNum, R_0, V_0, AVec, Builder, Mass, FuelCost, TIME, RRes)     \
-    {                                                                          \
-        SpaceShip sps(Builder, Mass, FuelCost, R_0, V_0, AVec);                \
-                                                                               \
-        sps.toggle_engine();                                                   \
-        sps.move_ship(TIME);                                                   \
-        check_unit_test(TestNum, sps.get_position(), RRes);                   \
-    }
+bool check_unit_test(int test_num, Vector R0, Vector R);
 
 /*!
  *  Function for unit testing

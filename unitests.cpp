@@ -4,9 +4,27 @@
 
 #include "unitests.h"
 
-void check_unit_test(int test_num, Vector R0, Vector R) {
+#define TEST(TestNum, R_0, V_0, AVec, Builder, Mass, FuelCost, TIME, RRes)     \
+    {                                                                          \
+        SpaceShip sps(Builder, Mass, FuelCost, R_0, V_0, AVec);                \
+                                                                               \
+        sps.toggle_engine();                                                   \
+        sps.move_ship(TIME);                                                   \
+        check_unit_test(TestNum, sps.get_position(), RRes);                    \
+    }
+
+bool check_unit_test(int test_num, Vector R0, Vector R) {
     if (R0 != R) {
-        std::cout << "Test number " << test_num << "not passed!" << std::endl;
+        std::cout << "Test number " << test_num << " not passed!" << std::endl;
+
+        std::cout << "The vector that we got" << std::endl;
+        R0.print_vector();
+        std::cout << "The vector we needed" << std::endl;
+        R.print_vector();
+
+        return false;
+    } else {
+        return true;
     }
 }
 void unit_test() {
@@ -21,4 +39,12 @@ void unit_test() {
         TEST(2, Vector(0, 20, 0), Vector(10, 0, 0), Vector(0, -10, 0),
              builder, 10000, 1.0, 4.0, Vector(40, -40, 0))
     }
+
+    {
+        EnergyFuelSystemBuilder builder(10, 10000, 1, 1, 10000);
+        TEST(3, Vector(0, 20, 0), Vector(10, 0, 0), Vector(0, -10, 0),
+             builder, 10000, 10000, 4.0, Vector(40, -15, 0))
+    }
 }
+
+#undef TEST

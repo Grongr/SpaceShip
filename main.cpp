@@ -1,4 +1,3 @@
-#include "spaceship.h"
 #include "unitests.h"
 
 int main() {
