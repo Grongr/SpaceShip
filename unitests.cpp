@@ -27,6 +27,7 @@ bool check_unit_test(int test_num, Vector R0, Vector R) {
         return true;
     }
 }
+
 void unit_test() {
     {
         EnergyFuelSystemBuilder builder(10, 1000.0, 1, 1, 10000);
