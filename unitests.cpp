@@ -24,6 +24,7 @@ bool check_unit_test(int test_num, Vector R0, Vector R) {
 
         return false;
     } else {
+        std::cout << "Test number " << test_num << " passed correctly :)" << std::endl;
         return true;
     }
 }

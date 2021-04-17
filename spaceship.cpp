@@ -14,13 +14,6 @@ Vector Vector::operator*(double value) const {
     return Vector(this->x * value, this->y * value, this->z * value);
 }
 
-Vector& Vector::operator=(Vector p) {
-    this->x = p.x;
-    this->y = p.y;
-    this->z = p.z;
-    return *this;
-}
-
 bool Vector::operator!=(Vector const &r) const {
     if (this->x == r.x && this->y == r.y && this->z == r.z)
         return false;
@@ -139,7 +132,7 @@ double EnergyFuelSystem::use_some_fuel(double fuel) {
 
     this->full_energy -= used_energy;
 
-    int i = this->batteries_count - 1;
+    size_t i = this->bat.size() - 1;
 
     while (used_energy > 0 && i >= 0) {
         used_energy -= bat[i].use_battery(used_energy);

@@ -7,14 +7,49 @@
 
 #define DEBUG
 
+#include <vector>
+#include <string>
+#include <exception>
 #include <cmath>
+
+//-----------------------------------------------------------------------------------------------------------//
+/*!
+ * Error which is thrown when count of params of EFS builder is not 5
+ */
+class EFSParamCountError : std::exception {
+public:
+
+    /*!
+     * Default constructor to this error type
+     * @param error  string which says what is an error
+     */
+    explicit EFSParamCountError(std::string error) : error{std::move(error)} {}
+
+    const char* what() const noexcept final { return error.c_str(); }
+
+private:
+    std::string error;
+};
+
+class SpaceShipBCountError : std::exception {
+public:
+
+    /*!
+     * Default constructor to this error type
+     * @param error  some info about this error
+     */
+    explicit SpaceShipBCountError(std::string error) : error{std::move(error)} {}
+
+    const char* what() const noexcept final { return error.c_str(); }
+private:
+    std::string error;
+};
 
 //-----------------------------------------------------------------------------------------------------------//
 /*!
  * Geometric representation of a vector in 3D space
  */
-class Vector
-{
+class Vector {
 public:
     /*!
      * Default constructor.
@@ -62,7 +97,7 @@ public:
      * @param p
      * @return result vector
      */
-    Vector& operator= (Vector p);
+    Vector& operator= (Vector const &p) = default;
 
 #ifdef DEBUG
 
@@ -217,31 +252,6 @@ private:
 };
 //-----------------------------------------------------------------------------------------------------------//
 /*!
- * This struct with it's constructor should be used to create any EnergyFuelSystem
- */
-struct EnergyFuelSystemBuilder {
-    int size_of_bat_arr;              //! Count of batteries in Energy system
-    double battery_energy;               //! Energy amount in one battery
-    double fu;                           //! Energy cost to use fQ amount of fuel in fuel system
-    double fQ;                           //! Max amount of fuel to use in one time in fuel system
-    double fmv;                          //! Value of fuel in fuel system
-
-    /*!
-     * Constructor of builder.
-     * Initialises all the params of it
-     * @param size_of_bat_arr
-     * @param battery_energy
-     * @param fu
-     * @param fQ
-     * @param fmv
-     */
-    EnergyFuelSystemBuilder(int size_of_bat_arr, double battery_energy,
-                            double fu, double fQ, double fmv) :
-            size_of_bat_arr{size_of_bat_arr}, battery_energy{battery_energy},
-            fu{fu}, fQ{fQ}, fmv{fmv} {}
-};
-//-----------------------------------------------------------------------------------------------------------//
-/*!
  * It is system that contains an integer number of batteries and a fuel tank
  */
 class EnergyFuelSystem {
@@ -257,15 +267,15 @@ public:
      * @param fQ
      * @param fmv
      */
-    explicit EnergyFuelSystem(EnergyFuelSystemBuilder builder) {
-       bat = new Battery[builder.size_of_bat_arr];
-       this->batteries_count = builder.size_of_bat_arr;
+    explicit EnergyFuelSystem(int size_of_bat_arr, double battery_energy, double fu,
+                              double fQ, double fmv) {
+       bat.resize(size_of_bat_arr);
 
-       for (int i = 0; i < builder.size_of_bat_arr; ++i)
-           bat[i].set_energy(builder.battery_energy);
-       this->full_energy = builder.size_of_bat_arr * builder.battery_energy;
+       for (int i = 0; i < size_of_bat_arr; ++i)
+           bat[i].set_energy(battery_energy);
+       this->full_energy = size_of_bat_arr * battery_energy;
 
-       this->tank.set_params(builder.fmv, builder.fmv, builder.fu, builder.fQ);
+       this->tank.set_params(fmv, fmv, fu, fQ);
     }
 
     /*!
@@ -284,16 +294,67 @@ public:
 
     double get_fuel() const { return tank.get_fuel(); }
 
-    ~EnergyFuelSystem() {
-        delete [] this->bat;
-        full_energy = 0;
-    }
+    ~EnergyFuelSystem() = default;
 
 private:
     double full_energy{0};
-    Battery *bat;
-    int batteries_count{0};
+    std::vector<Battery> bat;
     FuelTank tank{0, 0, 0, 0};
+};
+//-----------------------------------------------------------------------------------------------------------//
+/*!
+ * This struct with it's constructor should be used to create any EnergyFuelSystem
+ */
+class EnergyFuelSystemBuilder {
+protected:
+    int    size_of_bat_arr;              //! Count of batteries in Energy system
+    double battery_energy;               //! Energy amount in one battery
+    double fu;                           //! Energy cost to use fQ amount of fuel in fuel system
+    double fQ;                           //! Max amount of fuel to use in one time in fuel system
+    double fmv;                          //! Value of fuel in fuel system
+    int    count_of_setted_params;       //! If not enough params setted efs can't be made
+
+public:
+    /*!
+     * Default constructor for this builder
+     */
+    EnergyFuelSystemBuilder() :
+            size_of_bat_arr{0}, battery_energy{0}, fu{0},
+            fQ{0}, fmv{0}, count_of_setted_params{0} {}
+
+    /*!
+     * Constructor of builder.
+     * Initialises all the params of it
+     * @param size_of_bat_arr
+     * @param battery_energy
+     * @param fu
+     * @param fQ
+     * @param fmv
+     */
+    EnergyFuelSystemBuilder(int size_of_bat_arr, double battery_energy,
+                            double fu, double fQ, double fmv) :
+            size_of_bat_arr{size_of_bat_arr}, battery_energy{battery_energy},
+            fu{fu}, fQ{fQ}, fmv{fmv}, count_of_setted_params{5} {}
+    /*!
+    * This group of functions is made to set the params of builder in comfort way
+    */
+    void set_size_of_bat_arr(int size_) { this->size_of_bat_arr = size_; count_of_setted_params++; }
+    void set_bat_energy(double energy_) { this->battery_energy = energy_; count_of_setted_params++; }
+    void set_fmv(double fmv_)           { this->fmv = fmv_; count_of_setted_params++; }
+    void set_fu(double fu_)             { this->fu = fu_; count_of_setted_params++; }
+    void set_fQ(double fQ_)             { this->fQ = fQ_; count_of_setted_params++; }
+
+    /*!
+     * This method should be used to make Energy Fuel System
+     * @return pointer to prepared to work energy fuel system
+     */
+    EnergyFuelSystem* make_efs() const {
+        if (count_of_setted_params != 5)
+            throw EFSParamCountError("Count of params of Energy fuel system is not 5");
+        auto efs = new EnergyFuelSystem(size_of_bat_arr, battery_energy, fu, fQ, fmv);
+        return efs;
+    }
+
 };
 //-----------------------------------------------------------------------------------------------------------//
 class SpaceShip {
@@ -306,20 +367,20 @@ public:
      * @param R         - start location
      * @param V         - start velocity
      */
-    SpaceShip(EnergyFuelSystemBuilder builder, double mass, double fuel_cost,
+    SpaceShip(EnergyFuelSystemBuilder const &builder, double mass, double fuel_cost,
               Vector R, Vector V, Vector a_vec)
-            : mass{mass}, R{R}, efs(builder), fuel_cost{fuel_cost}, V{V}, AVec{a_vec} {}
+            : mass{mass}, R{R}, efs(*builder.make_efs()), fuel_cost{fuel_cost}, V{V}, AVec{a_vec} {}
 
     /*!
      * Constructor without initialization of Radius
      * @param mass
      * @param fuel
      */
-    SpaceShip(EnergyFuelSystemBuilder builder, double mass, double fuel_cost):
+    SpaceShip(EnergyFuelSystemBuilder const& builder, double mass, double fuel_cost):
             mass{mass}, R{0, 0, 0},
             V{0, 0, 0},
             fuel_cost{fuel_cost},
-            efs(builder) {}
+            efs(*builder.make_efs()) {}
 
     /*!
      * Changed direction of acceleration to new_dir
@@ -378,5 +439,52 @@ private:
     bool is_engine_active{false};
     EnergyFuelSystem efs;
 };
+//-----------------------------------------------------------------------------------------------------------//
+class SpaceShipBuilder {
+public:
+    /*!
+     * Constructor with no params
+     */
+    SpaceShipBuilder() : R{0, 0, 0}, V{0, 0, 0}, AVec{0, 0, 0},
+                         mass{1}, fuel_cost{0}, is_engine_active{false}, count_of_params{0} {}
+
+    /*!
+     * Constructor with all the params
+     * @param R
+     * @param V
+     * @param AVec
+     * @param mass
+     * @param fuel_cost
+     * @param is_engine_active
+     */
+    SpaceShipBuilder(Vector const& R, Vector const& V, Vector const& AVec,
+                     double mass, double fuel_cost, bool is_engine_active)
+        : R{R}, V{V}, AVec{AVec}, mass{mass}, fuel_cost{mass},
+          is_engine_active{is_engine_active}, count_of_params{5} {}
+
+    /*
+     *  List of functions which could be used to set params of spaceship
+     */
+    void set_fuel_cost(double fuel_cost) { this->fuel_cost = fuel_cost; ++count_of_params; }
+    void set_is_engine_active(bool b)    { this->is_engine_active = b; ++count_of_params; }
+    void set_AVec(Vector const& AVec)    { this->AVec = AVec; ++count_of_params; }
+    void set_R(Vector const& R)          { this->R = R; ++count_of_params; }
+    void set_V(Vector const& V)          { this->V = V; ++count_of_params; }
+    void set_mass(double mass)           { this->mass = mass; ++count_of_params; }
+
+    SpaceShip* make_spaceship(EnergyFuelSystemBuilder const& efs) {
+        if (count_of_params != 6)
+            throw SpaceShipBCountError("Count of params in spaceship builder is not 6");
+        auto sps = new SpaceShip(efs, mass, fuel_cost, R, V, AVec);
+        return sps;
+    }
+
+protected:
+    Vector R{}, V{}, AVec{};
+    double mass, fuel_cost;
+    bool is_engine_active;
+    int count_of_params{0};
+};
+//TODO write builder for a SpaceShip
 
 #endif //SPACESHIP_SPACESHIP_H
